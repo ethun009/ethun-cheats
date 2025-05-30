@@ -1,0 +1,220 @@
+:root {
+  --primary-color: #00aaa7;
+  --secondary-color: #7f42a7;
+  --background-color: #0a0f1e;
+  --card-bg: rgba(16, 20, 30, 0.95);
+  --text-color: #fff;
+  --accent-color: #00e5ff;
+  --border-color: rgba(0, 229, 255, 0.2);
+  --transition: all 0.3s ease;
+  --shadow: 0 0 30px rgba(0, 200, 255, 0.3);
+}
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #0a0f1e;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 229, 255, 0.05);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 229, 255, 0.3);
+  border-radius: 5px;
+  animation: scrollGlow 2s infinite alternate;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 229, 255, 0.5);
+}
+
+@keyframes scrollGlow {
+  from { box-shadow: inset 0 0 5px rgba(0, 229, 255, 0.3); }
+  to { box-shadow: inset 0 0 10px rgba(0, 229, 255, 0.6); }
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, rgba(0, 229, 255, 0.5), rgba(127, 66, 167, 0.5));
+}
+
+.sec {
+  min-height: 100vh;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+.back-vid {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+@media (max-aspect-ratio:16/9) {
+    .back-vid {
+        width: auto;
+        height: 100%;
+    }
+}
+
+@media (min-aspect-ratio:16/9) {
+    .back-vid {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Loading Screen Styles */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0a0f1e;
+  color: #fff;
+  z-index: 999;
+}
+
+.counter {
+  position: fixed;
+  left: 50px;
+  bottom: 50px;
+  display: flex;
+  gap: 8px;
+  font-family: 'Orbitron', sans-serif;
+  color: #00e5ff;
+  z-index: 1000;
+  perspective: 1000px;
+}
+
+.digit {
+  position: relative;
+  width: 65px;
+  height: 100px;
+  border-radius: 4px;
+  font-size: 72px;
+  font-weight: 700;
+  overflow: hidden;
+  background: rgba(0, 229, 255, 0.1);
+}
+
+.digit-inner {
+  position: absolute;
+  width: 100%;
+  height: 1000%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.num {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  display: flex;
+  background: rgba(0, 229, 255, 0.1);
+}
+
+.loader-1 {
+  position: relative;
+  background-color: #00e5ff;
+  width: 0;
+  height: 50px;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+}
+
+.loader-2,
+.loader-3,
+.loader-4 {
+  position: absolute;
+  background: #00e5ff;
+  width: 0;
+  height: 50px;
+  opacity: 0;
+  transform-origin: left center;
+  left: 60px;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+}
+
+/* Hide all content except loader initially */
+body {
+  overflow: hidden; /* Prevent scrolling during load */
+}
+
+/* Show content when loading is complete */
+body.loaded {
+  overflow: auto; /* Re-enable scrolling */
+}
+
+.container,
+.header,
+.sidebar,
+main,
+section,
+footer {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-out;
+}
+
+body.loaded .container,
+body.loaded .header,
+body.loaded .sidebar,
+body.loaded main,
+body.loaded section,
+body.loaded footer {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.loaded .loading-screen {
+  display: none;
+}
+
+/* Hide preloader if not first visit */
+.loading-screen.hidden {
+  display: none;
+}

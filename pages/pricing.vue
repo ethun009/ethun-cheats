@@ -1,0 +1,3 @@
+--SUPABASE_URL = 'https://ujtvveicfyudltcswkgu.supabase.co'
+--SUPABASE_KEY = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVqdHZ2ZWljZnl1ZGx0Y3N3a2d1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg2MTI2ODUsImV4cCI6MjA2NDE4ODY4NX0.4v8eLk13DzqtKrlJ2kxEl7oxIWTQ5Q0hZJUHj7V1Ezg
+--ADMIN_EMAIL=royhonroy"gmail.com
